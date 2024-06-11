@@ -3,6 +3,8 @@ import { Inter as FontSans } from "next/font/google"
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
+import { Toast } from "@/components/ui/toast";
+import { Toaster } from "@/components/ui/toaster";
 
 
  
@@ -29,7 +31,7 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         {children}
-        
+        <Toaster/>
       </ThemeProvider>
         
         </body>

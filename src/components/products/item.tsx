@@ -12,8 +12,13 @@ type Props= {
 export const ProductItem = ({item}:Props)=>{
 
     const {upsertCartItem} = useCartStore(state => state)
-
+    const {toast} = useToast()
     const handleAddButton = ()=>{
+        toast({
+            title:'adicionando ao carrinho',
+            description: item.name,
+            action: <ToastAction altText="fechar">Fechar</ToastAction>
+        })
         upsertCartItem(item,1)
     }
     return(
