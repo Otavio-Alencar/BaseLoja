@@ -3,6 +3,7 @@ import { Product } from "@/types/product"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 import { ToastAction } from "@/components/ui/toast"
+import { useCartStore } from "@/stores/cart-store"
 
 type Props= {
     item: Product
@@ -10,10 +11,10 @@ type Props= {
 
 export const ProductItem = ({item}:Props)=>{
 
-    
+    const {upsertCartItem} = useCartStore(state => state)
 
     const handleAddButton = ()=>{
-        
+        upsertCartItem(item,1)
     }
     return(
         <div>
